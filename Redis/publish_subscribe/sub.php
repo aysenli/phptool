@@ -24,7 +24,7 @@ $redis->auth('auth');
 $redis->subscribe(array('channelName'), 'callback');
 // 回调函数, 这里写处理逻辑
 function callback($instance, $channelName, $message) {
-	echo $channelName, "==>", $message, PHP_EOL;
+    echo $channelName, "==>", $message, PHP_EOL;
 }
 
 
