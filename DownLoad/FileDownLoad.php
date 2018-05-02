@@ -42,7 +42,8 @@ class FileDownLoad
             // 避免下载超时
             set_time_limit(0);
             // 避免中文乱码
-            $down_name = iconv('utf-8', 'gb2312', $down_name);
+            // iconv编码转换存在bug, $down_name = iconv('utf-8', 'gb2312', $down_name);  
+            $down_name = mb_convert_encoding($down_name, 'gb2312', 'utf-8');
             // 打开
             $fp = fopen($down_path, 'rb');
             // 文件大小
@@ -81,7 +82,8 @@ class FileDownLoad
             // 避免下载超时
             set_time_limit(0);
             // 避免中文乱码
-            $down_name = iconv('utf-8', 'gb2312', $down_name);
+            // iconv编码转换存在bug, $down_name = iconv('utf-8', 'gb2312', $down_name); 
+            $down_name = mb_convert_encoding($down_name, 'gb2312', 'utf-8');
             // 打开
             $fp = fopen($down_path, 'rb');
             // 文件大小
